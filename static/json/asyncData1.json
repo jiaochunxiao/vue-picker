@@ -1,0 +1,20 @@
+{
+    "errno": 0,
+    "errmsg": "",
+    "result": {
+        "dataList": [
+            {
+                "value": "11",
+                "label": "11"
+            },
+            {
+                "value": "22",
+                "label": "22"
+            },
+            {
+                "value": "33",
+                "label": "33"
+            }
+        ]
+    }
+}

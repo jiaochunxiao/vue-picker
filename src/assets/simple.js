@@ -1,0 +1,2 @@
+const simple = [[{label:'张三',value:1},{label:'李四',value:2},{label:'王五',value:3},{label:'赵六',value:4}],[{label:'开心',value:1},{label:'生气',value:2},{label:'搞笑',value:3},{label:'难过',value:4}]]
+export default simple

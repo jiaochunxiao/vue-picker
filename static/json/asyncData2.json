@@ -1,0 +1,18 @@
+{
+    "errno": 0,
+    "errmsg": "",
+    "result": [
+        {
+            "value": "111",
+            "label": "111"
+        },
+        {
+            "value": "222",
+            "label": "222"
+        },
+        {
+            "value": "333",
+            "label": "333"
+        }
+    ]
+}
