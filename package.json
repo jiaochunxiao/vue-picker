@@ -1,6 +1,6 @@
 {
   "name": "vue-picker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "基于vue2.x的picker组件",
   "author": "jiaochunxiao <jcx13627607951@gmail.com>",
   "private": true,
