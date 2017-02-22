@@ -41,10 +41,6 @@ export default{
 		Popup
 	},
 	props:{
-		title: {
-			type: String,
-			default: ''
-		},
 		'show': {
 			type: Boolean,
 			default: false

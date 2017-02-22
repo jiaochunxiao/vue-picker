@@ -84,7 +84,69 @@ npm run dev
 ```
 组件中props值：
 ```
-
+props:{
+	'show': {
+		type: Boolean,//是否显示
+		default: false
+	},
+	'selectIndex': {//选中的选项的索引
+        type: Array
+    },
+    'selectVal': {//选中的选项的值
+        type: Array
+    },
+	'title':{//弹层中间的标题
+		type: String,
+		default: ''
+	},
+	'cancelText':{//取消操作的显示文案
+		type: String,
+		default: '取消'
+	},
+	'confirmText': {//确定操作的显示文案
+		type: String,
+		default: '确定'
+	},
+	'element':{//关联的元素
+		type: String,
+		default: ''
+	},
+	'data':{
+		type: Array,//
+		default: function(){
+			return []
+		}
+	},
+	'invalid':{//不能被选中的选项
+		type: Array,
+		default: function(){
+			return []
+		}
+	},
+	'cols':{//picker列数
+		default:''
+	},
+	'isAsync': {//是否异步
+        type: Boolean,
+        default: false
+    },
+    'isLink': {//是否需要联动
+		type: Boolean,
+		default: false
+    },
+    'hidePicker':{//隐藏时触发的方法
+		type: Function,
+		default: function(){}
+    },
+	'changePicker': {//picker滚动时触发的方法
+		type: Function,
+		default: function(){}
+	},
+	'confirmAction': {//确定时触发的方法
+		type: Function,
+		default: function(){}
+	}
+}
 ```
 
 ## 后记
