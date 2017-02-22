@@ -65,13 +65,15 @@ export default{
 		},
 		'element':{
 			type: String,
-			default: ''
+			default: '',
+            required: true
 		},
 		'data':{
 			type: Array,
 			default: function(){
 				return []
-			}
+			},
+            required: true
 		},
 		'invalid':{
 			type: Array,
