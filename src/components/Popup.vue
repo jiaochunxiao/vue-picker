@@ -37,7 +37,7 @@ export default{
 		},
 		'title':{
 			type: String,
-			default: ""
+			default: '标题'
 		},
 		'cancelText':{
 			type: String,
@@ -60,36 +60,34 @@ export default{
 			default: function(){}
 		},
 		'hideFun': {
-            type: Function,
-            default: function(){}
-        }
+      type: Function,
+      default: function(){}
+    }
 	},
 	data(){
-		return {
-
-		}
+		return {}
 	},
 	methods:{
 		hidePopup(){
 			if(this.maskClose){
 				this.$emit('hideFun');
-				this.show = false;
+				//this.show = false;
 			}
 		},
 		cancelPopup(){
 			console.log('cancel');
 			this.$emit('cancelFun');
-			this.show = false;
+			//this.show = false;
 		},
 		confirmPopup(){
 			this.$emit('confirmFun');
-			this.show = false;
+			//this.show = false;
 		}
 	},
 	watch:{
-		show(){
-			this.show? this.$emit('showFun') : '';
-		}
+		// show(){
+		// 	this.show? this.$emit('showFun') : '';
+		// }
 	}
 }
 </script>
@@ -140,7 +138,7 @@ export default{
 				line-height: .44rem;
 			}
 			.title{
-				width: 60%; 
+				width: 60%;
 				font-size: .18rem;
 				color: #666;
 			}
@@ -163,7 +161,7 @@ export default{
 .bottom-enter-active,
 .bottom-leave-active{
     transition: all .5s;
-}    
+}
 .top-enter,
 .top-leave-active{
     transform: translateY(-100%);

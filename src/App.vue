@@ -16,44 +16,48 @@
             <p class='left'>日期<p>
             <p class="right" v-text='picker3Data.label' :value='picker3Data.value'></p>
         </div>
-        <Picker 
-            ref='picker0' 
-            element='picker0' 
-            :data='pickerData[0]' 
-            @confirmAction='confirmFun' 
-            cols='2' 
-            :select-index='[1, 2]' 
-            @hidePicker='hidePicker' 
+        <Picker
+            ref='picker0'
+            element='picker0'
+            :show='picker0show'
+            :data='pickerData[0]'
+            @confirmAction='confirmFun'
+            cols='2'
+            :select-index='[1, 2]'
+            @hidePicker='hidePicker'
             :invalid="['李四', '搞笑']"
         >
         </Picker>
-        <Picker 
-            ref='picker1' 
-            element='picker1' 
-            :data='pickerData[1]' 
-            @confirmAction='confirmFun' 
-            cols='3' 
-            :select-index='[4, 0, 0]' 
-            @hidePicker='hidePicker' 
-            :is-link='true' 
+        <Picker
+            ref='picker1'
+            element='picker1'
+            :show='picker1show'
+            :data='pickerData[1]'
+            @confirmAction='confirmFun'
+            cols='3'
+            :select-index='[4, 0, 0]'
+            @hidePicker='hidePicker'
+            :is-link='true'
             :invalid='["","合肥市","高新区"]'
         >
         </Picker>
-        <Picker 
-            ref='picker2' 
-            element='picker2' 
-            :data='pickerData[2]' 
-            @confirmAction='confirmFun' 
+        <Picker
+            ref='picker2'
+            element='picker2'
+            :show='picker2show'
+            :data='pickerData[2]'
+            @confirmAction='confirmFun'
             cols='3'
-            :is-async='true' 
-            @hidePicker='hidePicker' 
+            :is-async='true'
+            @hidePicker='hidePicker'
         >
         </Picker>
-        <Picker 
-            ref='picker3' 
-            element='picker3' 
-            :data='pickerData[3]' 
-            :selectVal='selectValDate' 
+        <Picker
+            ref='picker3'
+            element='picker3'
+            :show='picker3show'
+            :data='pickerData[3]'
+            :selectVal='selectValDate'
             cols='3'
             @hidePicker='hidePicker'
             @confirmAction='confirmFun'
@@ -61,7 +65,7 @@
         >
         </Picker>
     </div>
-    
+
 </template>
 
 <script>
@@ -127,18 +131,22 @@ export default {
                 'label': '请选择',
                 'value':  ''
             },
+            "picker0show": false,
+            "picker1show": false,
+            "picker2show": false,
+            "picker3show": false,
             mdate: mdate
         }
     },
     methods:{
         showPicker(el){
-            this.$refs[el].show = true;
+            this[el + 'show'] = true;
         },
         hidePicker(){
-            this.pickerShow = false;
+            this.resetPopup();
         },
         confirmFun (seletedIndex, selectVal, element) {
-            // this.[elment+'Text'] = 
+            // this.[elment+'Text'] =
             let value = '', label = ''
             for(let i = 0; i < selectVal.length; i++){
                 if(i == (selectVal.length - 1)){
@@ -148,11 +156,11 @@ export default {
                     label += selectVal[i].label + ','
                     value += selectVal[i].value + ','
                 }
-            } 
+            }
             this[element + 'Data' ] = {
                 label: label,
                 value: value
-            }  
+            }
         },
         changePickerForDate (wheelIndex, selectVal, selectIndex) {
             if (wheelIndex !== 2) {
@@ -160,7 +168,13 @@ export default {
                  var days = getDayData(new Date(this.selectValDate[0], this.selectValDate[1], 0).getDate())
                  this.pickerData[3].splice(2, 1, days)
             }
-        }
+        },
+        resetPopup(){
+          this.picker0show = false;
+          this.picker1show = false;
+          this.picker2show = false;
+          this.picker3show = false;
+      }
     }
 }
 </script>
@@ -184,7 +198,7 @@ export default {
             margin: 0;
             box-sizing: border-box;
             padding: 0 .2rem;
-            line-height: .44rem; 
+            line-height: .44rem;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -196,6 +210,6 @@ export default {
             float: right;
         }
     }
-    
+
 }
 </style>

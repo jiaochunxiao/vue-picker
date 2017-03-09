@@ -1,16 +1,16 @@
 <template>
 	<div class="dev-picker-component">
-		<Popup ref='popup' 
-			@hideFun='hideFun' 
-			@showFun='showFun' 
-			@cancelFun='cancelFun' 
+		<Popup ref='popup'
+			@hideFun='hideFun'
+			@showFun='showFun'
+			@cancelFun='cancelFun'
 			@confirmFun='confirmFun'
 			:title='title'
-			:cancel-text='cancelText' 
+			:cancel-text='cancelText'
 			:confirm-text='confirmText'
 			:action-show='true'
 			:mask-close='false'
-			:show='popupShow'
+			:show='show'
 		>
 			<div class='dev-picker-wrapper'>
                 <div class="dev-picker">
@@ -112,8 +112,7 @@ export default{
             selectedIndexTemp: [],
             selectedValTemp: [],
             labelKey: 'label',
-            renderData: [],
-            popupShow: false
+            renderData: []
 		}
 	},
 	created(){
@@ -126,7 +125,7 @@ export default{
          */
         init (index) {
 			index = index || 0
-			
+
             let promise = this.initRenderData(index)
             if (promise) {
                 promise.then(() => {
@@ -220,7 +219,7 @@ export default{
             if (this.selectIndex && this.selectIndex.length > 0) {
                 this.selectedIndex = this.selectIndex
             } else if (this.selectVal && this.selectVal.length > 0) {
-                this.useSelectValFlag = true 
+                this.useSelectValFlag = true
             }
         },
         initSelectedIndex () {
@@ -474,7 +473,7 @@ export default{
 		 */
 		cancelFun(){
 			let that = this;
-        	this.show = false;
+        	// this.show = false;
         	this.$emit('hidePicker');
         	setTimeout( () => {
                 that.init()
@@ -492,21 +491,21 @@ export default{
                 this.changeSelectedVal(i, this.selectedIndex[i], false)
             }
             this.$emit('hidePicker');
-        	this.show = false;
+        	// this.show = false;
 
         	;(typeof this.confirmAction == 'function') && this.$emit('confirmAction', this.selectedIndex, this.selectedVal, this.element)
         },
         hideFun(){
-
+			this.$emit('hidePicker');
         },
         showFun(){
-
+			console.log('show');
         },
     },
     watch:{
-		show(){
-            this.show ? this.popupShow = true: this.popupShow = false
-		},
+		// show(){
+        //     this.show ? this.popupShow = true: this.popupShow = false
+		// },
 		data(){
 			this.init()
 		}
