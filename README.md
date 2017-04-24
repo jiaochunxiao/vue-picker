@@ -1,12 +1,6 @@
 # vue-picker
 基于vue2.x的picker
 
-## update
-
-* 2017-02-16 版本1.0.0
-* 2017-02-22 版本1.0.1 增加props验证
-* 2017-03-09 版本1.0.2 fix warning
-
 ## 效果截图
 
 ![enter description here][1]
@@ -150,6 +144,11 @@ props:{
 	}
 }
 ```
+## update
+
+* 2017-02-16 版本1.0.0
+* 2017-02-22 版本1.0.1 增加props验证
+* 2017-03-09 版本1.0.2 fix warning
 
 ## 后记
 
