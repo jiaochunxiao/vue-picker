@@ -1,6 +1,8 @@
 # vue-picker
 基于vue2.x的picker
 
+[线上demo](https://jiaochunxiao.github.io/vue-picker/)
+
 ## 效果截图
 
 ![enter description here][1]
